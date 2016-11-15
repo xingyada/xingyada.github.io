@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css/player.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="play_box">
+        <audio id="myAudio" preload="auto">
+            <source src="sound/1.mp3">
+            <source src="sound/1.mp3">
+        </audio>
+        <div id="cdPlayer">
+            <div id="myConsole">曲名</div>
+            <div id="CD">
+                <div id="cdDisk"></div>
+                <div id="cdCover"></div>
+            </div>
+            <div id="cdControllerArm"></div>
+            <div id="playMode">
+                <div id="shuffleMode" class="mode" title="随机播放"><i class="iconfont">&#xe504;</i>&nbsp;</div>
+                <div id="listMode" class="mode" title="顺序播放"><i class="iconfont">&#xe61e;</i>&nbsp;</div>
+                <div id="loopMode" class="mode rouder" title="单曲循环"><i class="iconfont">&#xe601;</i>&nbsp;</div>
+            </div>
+            <div id="controllerButton">
+                <div id="playBtn" class="button" title="播放"><i class="iconfont">&#xe634;</i>&nbsp;</div>
+                <div id="pauseBtn" class="button" title="暂停"><i class="iconfont">&#xe60a;</i>&nbsp;</div>
+                <div id="nextBtn" class="button" title="下一曲"><i class="iconfont">&#xe63d;</i>&nbsp;</div>
+                <div id="preBtn" class="button" title="上一曲"><i class="iconfont">&#xe63c;</i>&nbsp;</div>
+                <div id="stopBtn" class="button" title="停止"><i class="iconfont">&#xe608;</i>&nbsp;</div>
+                <div id="muteBtn" class="button" title="静音"><i class="iconfont">&#xe621;</i>&nbsp;</div>
+                <div id="firstBtn" class="button" title="首曲"><i class="iconfont">&#xe69f;</i>&nbsp;</div>
+                <div id="lastBtn" class="button" title="末曲"><i class="iconfont">&#xe69e;</i>&nbsp;</div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-1.11.2.js"></script>
+    <script src="js/player.js"></script>
+</body>
+</html>

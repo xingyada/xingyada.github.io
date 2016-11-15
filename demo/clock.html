@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clock By Canvas</title>
+    <meta name="description" content="">
+	<link rel="stylesheet" href="../css/main.css">
+	<style>
+	    body{
+	        background: #000;
+	        text-align: center;
+	        overflow: hidden;
+	    }
+	    canvas{
+	        background: #b6a754;
+	    }
+	    canvas span{
+	        color: #fff;
+	        font-size: 50px;
+	    }
+	    footer{
+	    	position: absolute;
+	    	bottom: 0;
+	    }
+	</style>
+	<script>
+	    function d2a(n){
+	        return n*Math.PI/180;
+	    }
+	    function toDou(n){
+	        return n<10?'0'+n:''+n;
+	    }
+	    window.onload=function(){
+	        var oC=document.getElementById('c1');
+	        var gd=oC.getContext('2d');
+	        var cx = 200;
+	        var cy = 200;
+
+	        function drawArc(start,end,r,color){
+	            gd.beginPath();
+	            gd.lineWidth=20;
+	            start -=90;
+	            end -=90;
+	            gd.strokeStyle=color || '#000';
+	            gd.arc(cx,cy,r,d2a(start),d2a(end),false);
+	            gd.stroke();
+	        }
+
+	        setInterval(function(){
+	            gd.clearRect(0,0,oC.width,oC.height);
+
+	            gd.beginPath();
+	            gd.lineWidth = 1;
+	            gd.font = '30px 黑体';
+	            gd.textAlign = 'center';
+	            gd.strokeStyle = '#000';
+	            gd.strokeText('Welcome',200,60);
+
+	            var oDate = new Date();
+	            var h = oDate.getHours();
+	            var m = oDate.getMinutes();
+	            var s = oDate.getSeconds();
+	            var ms = oDate.getMilliseconds();
+	            //draw之前清定时器
+	            drawArc(0,h%12*30+m/60*30,60);
+	            drawArc(0,m*6+s/60*6,80,'#399');
+	            drawArc(0,s*6+ms/1000*6,100,'red');
+	            gd.beginPath();
+	            drawArc(0,360,120,'blue');
+	            //文字时钟
+	            gd.beginPath();
+	            gd.font='23px 宋体';
+	            gd.fillText(toDou(h)+':'+toDou(m)+':'+toDou(s),cx,cy);
+	        },16);
+	    };
+	</script>
+</head>
+<body>
+	<header>
+		<ul class="block-menu">
+		  <li>
+		    <a href="../index.html" class="three-d">
+		      Home
+		      <span class="three-d-box">
+		        <span class="front">Home</span>
+		        <span class="back">Home</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="../demo.html" class="three-d">
+		     	DEMO
+		      <span class="three-d-box">
+		        <span class="front">DEMO</span>
+		        <span class="back">DEMO</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="#" class="three-d">
+		      ABOUT
+		      <span class="three-d-box">
+		        <span class="front">ABOUT</span>
+		        <span class="back">ABOUT</span>
+		      </span>
+		    </a>
+		  </li>
+		</ul>
+	</header>
+	<section>
+		<a class="back_btn" href="../demo.html">返回</a>
+		<canvas id="c1" width="400" height="400">
+		    <span>您的浏览器版本过低,不能正常显示,请升级最新版本</span>
+		</canvas>
+	</section>
+	<footer>
+		<p>
+			Talk is cheap, show me the code.Blog by Kindbug.
+		</p>	
+	</footer>
+</body>
+</html>

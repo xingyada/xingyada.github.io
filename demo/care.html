@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clock By Canvas</title>
+    <meta name="description" content="">
+	<link rel="stylesheet" href="../css/main.css">
+	<style>
+	    body{
+	        background: #000;
+	        text-align: center;
+	        overflow: hidden;
+	    }
+	    canvas{
+	        background: #000;
+	    }
+	    canvas span{
+	        color: #fff;
+	        font-size: 50px;
+	    }
+	    footer{
+	    	position: absolute;
+	    	bottom: 0;
+	    }
+	</style>
+	<script>
+		function rnd(m,n){
+			return parseInt(Math.random()*(n-m)+m);
+		}
+		window.onload=function(){
+
+			function DrawPoint(p){
+				gd.fillStyle='#fff';
+				gd.fillRect(p.x,p.y,w,h);
+			}
+
+			var oC=document.getElementsByTagName('canvas')[0];
+			var gd=oC.getContext('2d');
+			var oW=document.documentElement.clientWidth;
+			var oH=document.documentElement.clientHeight;
+			oC.width=oW;
+			oC.height=oH;
+			var w=1;
+			var h=1;
+			var N=3;
+			var numLine=100;
+			var oldArr=[];
+			//存每一的方块的信息
+			var aPoint=[];
+			
+			for(var i=0;i<N;i++){
+				aPoint[i]={
+					x:rnd(0,oW),
+					y:rnd(0,oH),
+					iSpeedX:rnd(-10,10),
+					iSpeedY:rnd(-10,10)
+				};
+			}
+			setInterval(function(){
+				gd.clearRect(0,0,oW,oH);
+				for(var i=0;i<N;i++){
+					aPoint[i].x+=aPoint[i].iSpeedX;
+					aPoint[i].y+=aPoint[i].iSpeedY;
+					
+					if(aPoint[i].x<w/2){
+						aPoint[i].x=w/2;
+						aPoint[i].iSpeedX*=-1;
+					}
+					if(aPoint[i].x>(oW-w/2)){
+						aPoint[i].x=oW-w/2;
+						aPoint[i].iSpeedX*=-1;
+					}
+					if(aPoint[i].y<h/2){
+						aPoint[i].y=h/2;
+						aPoint[i].iSpeedY*=-1;
+					}
+					if(aPoint[i].y>(oH-h/2)){
+						aPoint[i].y=oH-h/2;
+						aPoint[i].iSpeedY*=-1;
+					}
+					DrawPoint(aPoint[i]);
+				}
+				gd.beginPath();
+				gd.moveTo(aPoint[0].x,aPoint[0].y)
+				for(var i=1;i<N;i++){
+					gd.lineTo(aPoint[i].x,aPoint[i].y);
+				}
+				gd.strokeStyle='#fff'
+				gd.closePath();
+				gd.stroke();
+				//画尾巴 ,存旧坐标,存5次每一次的5个方框的坐标
+				var arr=[];
+				for(var i=0;i<aPoint.length;i++){
+					arr.push({
+						x:aPoint[i].x,
+						y:aPoint[i].y
+					});
+
+				}
+				oldArr.push(arr);
+				//[[五个点信息],[1],[1],[1],[1]]
+				if(oldArr.length>numLine){
+					oldArr.shift(); 
+				}
+				
+				for(var i=0;i<oldArr.length;i++){
+					gd.beginPath();
+					gd.moveTo(oldArr[i][0].x,oldArr[i][0].y);
+					for(var j=1;j<oldArr[i].length;j++){
+						gd.lineTo(oldArr[i][j].x,oldArr[i][j].y);
+					}
+					gd.strokeStyle='rgba(25,55,25,'+i/numLine+')';
+					gd.closePath();
+					gd.stroke();
+				}
+			},30);
+			
+		};
+	</script>
+</head>
+<body>
+	<header>
+		<ul class="block-menu">
+		  <li>
+		    <a href="../index.html" class="three-d">
+		      Home
+		      <span class="three-d-box">
+		        <span class="front">Home</span>
+		        <span class="back">Home</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="../demo.html" class="three-d">
+		     	DEMO
+		      <span class="three-d-box">
+		        <span class="front">DEMO</span>
+		        <span class="back">DEMO</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="#" class="three-d">
+		      ABOUT
+		      <span class="three-d-box">
+		        <span class="front">ABOUT</span>
+		        <span class="back">ABOUT</span>
+		      </span>
+		    </a>
+		  </li>
+		</ul>
+	</header>
+	<section>
+		<a class="back_btn" href="../demo.html">返回</a>
+		<canvas id="c1">
+		    <span>您的浏览器版本过低,不能正常显示,请升级最新版本</span>
+		</canvas>
+	</section>
+	<footer>
+		<p>
+			Talk is cheap, show me the code.Blog by Kindbug.
+		</p>	
+	</footer>
+</body>
+</html>

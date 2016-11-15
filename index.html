@@ -1,53 +1,206 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="UTF-8">
-    <title>Xingyada.GitHub.io by xingyada</title>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Xingyada.GitHub.io</h1>
-      <h2 class="project-tagline"></h2>
-    </section>
+    <title>大白菜的博客</title>
+    <meta name="description" content="">
+	<link rel="stylesheet" href="css/main.css">
+	<link href="css/player.css" rel="stylesheet" />
+	<script>
 
-    <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+	</script>
+</head>
+<body style="overflow:hidden;">
+	<header>
+		<ul class="block-menu">
+		  <li>
+		    <a href="index.html" class="three-d">
+		      Home
+		      <span class="three-d-box">
+		        <span class="front">Home</span>
+		        <span class="back">Home</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="demo.html" class="three-d">
+		     	DEMO
+		      <span class="three-d-box">
+		        <span class="front">DEMO</span>
+		        <span class="back">DEMO</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="#" class="three-d">
+		      ABOUT
+		      <span class="three-d-box">
+		        <span class="front">ABOUT</span>
+		        <span class="back">ABOUT</span>
+		      </span>
+		    </a>
+		  </li>
+		</ul>
+	</header>
+	<section style="margin-top:0;">
+		<div class="play_box">
+		    <audio id="myAudio" preload="auto">
+		        <source src="sound/1.mp3">
+		        <source src="sound/1.mp3">
+		    </audio>
+		    <div id="cdPlayer">
+		        <div id="myConsole">曲名</div>
+		        <div id="CD">
+		            <div id="cdDisk"></div>
+		            <div id="cdCover"></div>
+		        </div>
+		        <div id="cdControllerArm"></div>
+		        <div id="playMode">
+		            <div id="shuffleMode" class="mode" title="随机播放"><i class="iconfont">&#xe504;</i>&nbsp;</div>
+		            <div id="listMode" class="mode" title="顺序播放"><i class="iconfont">&#xe61e;</i>&nbsp;</div>
+		            <div id="loopMode" class="mode rouder" title="单曲循环"><i class="iconfont">&#xe601;</i>&nbsp;</div>
+		        </div>
+		        <div id="controllerButton">
+		            <div id="playBtn" class="button" title="播放"><i class="iconfont">&#xe634;</i>&nbsp;</div>
+		            <div id="pauseBtn" class="button" title="暂停"><i class="iconfont">&#xe60a;</i>&nbsp;</div>
+		            <div id="nextBtn" class="button" title="下一曲"><i class="iconfont">&#xe63d;</i>&nbsp;</div>
+		            <div id="preBtn" class="button" title="上一曲"><i class="iconfont">&#xe63c;</i>&nbsp;</div>
+		            <div id="stopBtn" class="button" title="停止"><i class="iconfont">&#xe608;</i>&nbsp;</div>
+		            <div id="muteBtn" class="button" title="静音"><i class="iconfont">&#xe621;</i>&nbsp;</div>
+		            <div id="firstBtn" class="button" title="首曲"><i class="iconfont">&#xe69f;</i>&nbsp;</div>
+		            <div id="lastBtn" class="button" title="末曲"><i class="iconfont">&#xe69e;</i>&nbsp;</div>
+		        </div>
+		    </div>
+		</div>
+		<div id="rain">
+			<canvas id="canvas-club" width="1920" height="660"></canvas>
+		</div>
+	</section>
+	<footer style="position:absolute; bottom:0; width:100%;">
+		<p>
+			Talk is cheap, show me the code.Blog by Kindbug.
+		</p>	
+	</footer>
+</body>
+<script src="js/stopExecutionOnTimeout.js"></script>
+<script>
+var c = document.getElementById("canvas-club");
+var ctx = c.getContext("2d");
+var w = c.width = window.innerWidth;
+var h = c.height = window.innerHeight;
+var clearColor = 'rgba(0, 0, 0, .1)';
+var max = 30;
+var drops = [];
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.</p>
+function random(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
-<h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Designer Templates</h3>
+function O() {}
 
-<p>We’ve crafted some handsome templates for you to use. Go ahead and click 'Continue to layouts' to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved.</p>
+O.prototype = {
+	init: function() {
+		this.x = random(0, w);
+		this.y = 0;
+		this.color = 'hsl(180, 100%, 50%)';
+		this.w = 2;
+		this.h = 1;
+		this.vy = random(4, 5);
+		this.vw = 3;
+		this.vh = 1;
+		this.size = 2;
+		this.hit = random(h * .8, h * .9);
+		this.a = 1;
+		this.va = .96;
+	},
+	draw: function() {
+		if (this.y > this.hit) {
+			ctx.beginPath();
+			ctx.moveTo(this.x, this.y - this.h / 2);
 
-<h3>
-<a id="creating-pages-manually" class="anchor" href="#creating-pages-manually" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating pages manually</h3>
+			ctx.bezierCurveTo(
+				this.x + this.w / 2, this.y - this.h / 2,
+				this.x + this.w / 2, this.y + this.h / 2,
+				this.x, this.y + this.h / 2);
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+			ctx.bezierCurveTo(
+				this.x - this.w / 2, this.y + this.h / 2,
+				this.x - this.w / 2, this.y - this.h / 2,
+				this.x, this.y - this.h / 2);
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+			ctx.strokeStyle = 'hsla(180, 100%, 50%, '+this.a+')';
+			ctx.stroke();
+			ctx.closePath();
+			
+		} else {
+			ctx.fillStyle = this.color;
+			ctx.fillRect(this.x, this.y, this.size, this.size * 5);
+		}
+		this.update();
+	},
+	update: function() {
+		if(this.y < this.hit){
+			this.y += this.vy;
+		} else {
+			if(this.a > .03){
+				this.w += this.vw;
+				this.h += this.vh;
+				if(this.w > 100){
+					this.a *= this.va;
+					this.vw *= .98;
+					this.vh *= .98;
+				}
+			} else {
+				this.init();
+			}
+		}
+		
+	}
+}
 
-<p>You can @mention a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor’s GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+function resize(){
+	w = c.width = window.innerWidth;
+	h = c.height = window.innerHeight;
+}
 
-<h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support or Contact</h3>
+function setup(){
+	for(var i = 0; i < max; i++){
+		(function(j){
+			setTimeout(function(){
+				var o = new O();
+				o.init();
+				drops.push(o);
+			}, j * 200)
+		}(i));
+	}
+}
 
-<p>Having trouble with Pages? Check out our <a href="https://help.github.com/pages">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
 
-      <footer class="site-footer">
+function anim() {
+	ctx.fillStyle = clearColor;
+	ctx.fillRect(0,0,w,h);
+	for(var i in drops){
+		drops[i].draw();
+	}
+	requestAnimationFrame(anim);
+}
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
 
-    </section>
+window.addEventListener("resize", resize);
 
-  
-  </body>
+setup();
+anim();
+      //@ sourceURL=pen.js
+</script>
+
+    
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+<script src="js/jquery-1.11.2.js"></script>
+<script src="js/player.js"></script>
 </html>

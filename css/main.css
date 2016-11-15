@@ -1,0 +1,186 @@
+@charset "utf-8";
+/* CSS Document */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd,input,textarea{ padding:0; margin:0;}
+img{ vertical-align:top; border:none;}
+a{ text-decoration:none; color:#4d6dad; }
+li{ list-style:none;}
+input,textarea{ background:none; border:none; outline:none;}
+textarea{ resize:none;}
+.fl{ float:left;}
+.fr{ float:right;}
+body{ font-size:12px; color:#777; background: #b5b5b5; }
+html,body{ height: 100%;}
+.clearfix:after{ content:''; display:block; clear:both;}
+.w{ width:1140px; margin:0px auto;}
+.w2{ width:1170px; margin:0px auto;}
+
+
+/* header */
+header{
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 10;
+}
+* {box-sizing: border-box;}
+.block-menu{
+width: 100%;
+
+ background:#253939;
+ height:50px;
+ overflow:hidden;
+ padding-left:40px;
+}
+.block-menu li{
+    float: left;
+    margin-left: 15px;
+}
+.block-menu li a{
+  color:#fff;
+  text-decoration:none;
+  text-transform:uppercase;
+  font-size:20px;
+  line-height:20px;
+  font-weight:bold;
+  font-family: Arial, sans-serif;
+  display:block;
+  padding:15px 10px;
+}
+.three-d{position:relative;}
+.three-d-box,.front,.back{
+   width:100%;
+   height:100%;
+   position:absolute;
+   top:0;
+   left:0;
+   padding:15px 10px;
+   background:#253939;
+}
+.three-d{perspective:200px;}
+.three-d-box{
+   transform-style:preserve-3d;
+   transform:translateZ(-25px);
+   transition: all .3s ;
+}
+.front{transform:rotateX(0deg) translateZ(25px);}
+.back{transform:rotateX(-90deg) translateZ(25px);}
+.three-d:hover .three-d-box{
+   transform: translateZ(-25px) rotateX(90deg);
+}
+#topics .postTitle a.postTitle2:hover{
+ color:#fff;
+ text-decoration:none;
+}
+#floor>a{
+display:block;
+}
+#floor{
+border-radius:3px;
+text-algin=center;
+position:fixed;
+left:15px;
+bottom:0;
+}
+#floor>a:hover{
+ text-decoration:none;
+ color:#AA7A53;
+ }
+ section{
+ 	margin-top: 40px;
+ }
+ /* 播放器 */
+ section .play_box #cdPlayer{
+	opacity: 0.8;
+ }
+/* Demo瀑布流 */
+.page{
+	width: 1140px;
+	margin: 0 auto;
+}
+.page .left {
+	
+    width: 100%;
+    float: left;
+    padding: 20px 30px;
+    line-height: 1.6;
+    font-size: 16px;
+    background-color: #f8f8fd;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 0 30px rgba(10, 10, 0, 0.1) inset;
+}
+.page .left h1{
+	font-size: 36px;
+	color: #000;
+}
+.page .left hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+.page .left .grid{
+	overflow: hidden;
+    width: 900px;
+    margin: 0 auto;
+}
+.page .left .grid ul {
+	float: left;
+	width: 280px;
+	margin:0 10px; 
+}
+.page .left .grid ul li{
+	font-family: '黑体';
+	border-radius: 5px 5px 5px 5px;
+	float: left;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	padding: 10px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+.page .left .grid ul li img{
+	width: 100%;
+}
+.page .left .grid ul li:hover{
+	transition:0.5s all ease;
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+.back_btn{
+	text-align: center;
+	line-height: 50px;
+	border-radius: 5px;
+	font-size: 30px;
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	margin-left: -50px;
+	width: 100px;
+	height: 50px;
+	color: #fff;
+	background: #000;
+	box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2);
+	animation:2s btn_move linear infinite;
+}
+@-webkit-keyframes btn_move{
+	
+	33%{
+		box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.5);
+	}
+	66%{
+		box-shadow: 0 0 20px 0 rgba(255, 255, 255, 1);
+	}
+	100%{
+		box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.3);
+	}
+}
+
+/* 底部 */
+footer{
+	width: 100%;
+	height: 50px;
+	font-size:20px;
+	line-height:50px;
+	font-weight:bold;
+	font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #253939;
+    color: #bbb;
+}
