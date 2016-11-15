@@ -87,6 +87,7 @@ bottom:0;
  color:#AA7A53;
  }
  section{
+ 	opacity: 0;
  	margin-top: 40px;
  }
  /* 播放器 */
@@ -183,4 +184,34 @@ footer{
     text-align: center;
     background-color: #253939;
     color: #bbb;
+}
+/* 关于我 */
+.aboutme{
+	padding: 20px;
+	border-radius: 10px;
+	background: rgba(0,0,0,0.3);
+	width: 500px;
+	height: 400px;
+	position: absolute;
+	left: 60%;
+	top: 50%;
+	margin-top: -200px;
+	font-family: '黑体';
+	color: #fff;
+	text-shadow: 0 0 5px #fff;
+
+}
+.aboutme h3{
+	font-size: 30px;
+	color: yellow;
+	margin-bottom: 10px;
+}
+.aboutme h3 span{
+	font-size: 23px;
+	color: #fff;
+}
+.aboutme ul li{
+	line-height: 48px;
+	font-size: 23px;
+
 }

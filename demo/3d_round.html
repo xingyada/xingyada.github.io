@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="../css/main.css">
 	<style>
 	body{ background: #000;}
+	section{ opacity: 1;}
     section ul{
         width:133px;
         height: 200px;
@@ -45,7 +46,7 @@
 	        var N = 11;
 	        for(var i = 0;i<N;i++){
 	            var oLi = document.createElement('li');
-	            oLi.style.backgroundImage = 'url(img/'+(i+1)+'.jpg)';
+	            oLi.style.backgroundImage = 'url(img/'+(i%2+1)+'.jpg)';
 	            oUl.appendChild(oLi);
 	            (function(oLi,i){
 	                setTimeout(function(){
@@ -104,7 +105,7 @@
 		    </a>
 		  </li>
 		  <li>
-		    <a href="#" class="three-d">
+		    <a href="../about.html" class="three-d">
 		      ABOUT
 		      <span class="three-d-box">
 		        <span class="front">ABOUT</span>

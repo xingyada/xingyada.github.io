@@ -4,12 +4,23 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>大白菜的博客</title>
+    <title>邢亚达的博客</title>
     <meta name="description" content="">
 	<link rel="stylesheet" href="css/main.css">
 	<link href="css/player.css" rel="stylesheet" />
+	<script src="js/jquery-1.11.2.js"></script>
 	<script>
-
+		$(function(){
+			var timer=null;
+			var n=0;
+			timer=setInterval(function(){
+				n+=0.03;
+				$('section').css('opacity',n);
+				if(n>1){
+					clearInterval(timer);
+				}
+			},30);
+		})
 	</script>
 </head>
 <body style="overflow:hidden;">
@@ -34,7 +45,7 @@
 		    </a>
 		  </li>
 		  <li>
-		    <a href="#" class="three-d">
+		    <a href="about.html" class="three-d">
 		      ABOUT
 		      <span class="three-d-box">
 		        <span class="front">ABOUT</span>

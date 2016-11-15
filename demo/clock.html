@@ -7,6 +7,20 @@
     <title>Clock By Canvas</title>
     <meta name="description" content="">
 	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/jquery-1.11.2.js"></script>
+	<script>
+		$(function(){
+			var timer=null;
+			var n=0;
+			timer=setInterval(function(){
+				n+=0.03;
+				$('section').css('opacity',n);
+				if(n>1){
+					clearInterval(timer);
+				}
+			},30);
+		})
+	</script>
 	<style>
 	    body{
 	        background: #000;
@@ -99,7 +113,7 @@
 		    </a>
 		  </li>
 		  <li>
-		    <a href="#" class="three-d">
+		    <a href="../about.html" class="three-d">
 		      ABOUT
 		      <span class="three-d-box">
 		        <span class="front">ABOUT</span>
