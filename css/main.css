@@ -142,7 +142,7 @@ bottom:0;
 }
 .page .left .grid ul li:hover{
 	transition:0.5s all ease;
-	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.8);
 }
 .back_btn{
 	text-align: center;
