@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clock By Canvas</title>
+    <meta name="description" content="">
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/jquery-1.11.2.js"></script>
+	<script>
+		$(function(){
+			var timer=null;
+			var n=0;
+			timer=setInterval(function(){
+				n+=0.03;
+				$('section').css('opacity',n);
+				if(n>1){
+					clearInterval(timer);
+				}
+			},30);
+		})
+	</script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body,html{
+			overflow: hidden;
+		}
+		body{
+			height: 100%;
+			width: 100%; 
+			background: #000;
+		}
+		footer{
+			position: absolute;
+			bottom:0;
+			width: 100%; 
+		}
+		#box{
+		    width: 800px;
+		    height: 300px;
+		    background: #699e87;
+		    color:#fff;
+		    line-height: 300px;
+		    text-align: center;
+		    margin:100px auto;
+		    font-size:40px;
+		    border-radius: 30px;
+		    box-shadow: 5px 5px 10px #fff;
+		}
+
+	</style>
+	
+	<script>
+	    window.onload=function(){
+	        var oBox=document.getElementById('box');
+	        var oDate=new Date();
+	        oDate.setFullYear(2017,0,1);
+	        oDate.setHours(0,0,0,0);
+	        function clock(){
+	            var ms=oDate.getTime()-new Date().getTime();
+	            var oSec=parseInt(ms/1000);
+	            var oDay=parseInt(oSec/86400);
+	            oSec%=86400;
+	            var oHour=parseInt(oSec/3600);
+	            oSec%=3600;
+	            var oMin=parseInt(oSec/60);
+	            oSec%=60;
+	            oBox.innerHTML='距离2017年1月1日还剩'+oDay+'天'+oHour+'时'+oMin+'分'+oSec+'秒';
+	        }
+	        clock();
+	        setInterval(clock,1000);
+	    };
+	</script>
+	
+</head>
+<body>
+	<header>
+		<ul class="block-menu">
+		  <li>
+		    <a href="../index.html" class="three-d">
+		      Home
+		      <span class="three-d-box">
+		        <span class="front">Home</span>
+		        <span class="back">Home</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="../demo.html" class="three-d">
+		     	DEMO
+		      <span class="three-d-box">
+		        <span class="front">DEMO</span>
+		        <span class="back">DEMO</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="../about.html" class="three-d">
+		      ABOUT
+		      <span class="three-d-box">
+		        <span class="front">ABOUT</span>
+		        <span class="back">ABOUT</span>
+		      </span>
+		    </a>
+		  </li>
+		</ul>
+	</header>
+	<section>
+		<a class="back_btn" href="../demo.html">返回</a>
+		<div id="box">
+		    距离2017年1月1日还剩xx天xx时xx分xx秒
+		</div>
+	</section>
+	<footer>
+		<p>
+			Talk is cheap, show me the code.Blog by Kindbug.
+		</p>	
+	</footer>
+</body>
+</html>

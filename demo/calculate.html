@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Clock By Canvas</title>
+    <meta name="description" content="">
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="../js/jquery-1.11.2.js"></script>
+	<script>
+		$(function(){
+			var timer=null;
+			var n=0;
+			timer=setInterval(function(){
+				n+=0.03;
+				$('section').css('opacity',n);
+				if(n>1){
+					clearInterval(timer);
+				}
+			},30);
+		})
+	</script>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		body,html{
+			overflow: hidden;
+		}
+		body{
+			height: 100%;
+			width: 100%; 
+			background: #73c5e1;
+		}
+		footer{
+			position: absolute;
+			bottom:0;
+			width: 100%; 
+		}
+		.box{
+			position: absolute;
+			top: 200px;left: 50%;
+			margin-left: -350px;
+			
+		}
+
+		input{
+			width: 300px;
+			line-height: 100px;
+			font-size: 80px;
+			background: #e2da99;
+		}
+		select{
+			width: 100px;
+			height: 100px;
+			font-size: 80px;
+		}
+		#enter{ margin-left: 200px;}
+		#res{width: 500px; margin-left: 100px;}
+	</style>
+	<script>
+	window.onload=function(){
+		var aInp=document.getElementsByTagName('input');
+		var sym=document.getElementById('sym');
+
+		aInp[2].onclick=function(){
+			var aVal1=Number(aInp[0].value);
+			var aVal2=Number(aInp[1].value);
+			var aVal3=sym.value;
+			function computed(n){
+					alert(n)
+				 	return (aVal1+aVal2)
+
+				}
+			if(isNaN(aVal1)){
+				alert('您输入的第一框有误');
+
+			}else if(isNaN(aVal2)){
+				alert('您输入的第二框有误');
+			}else{
+				
+				switch(aVal3){
+				case'+':
+					aInp[3].value=1000*(aVal1+aVal2)/1000
+					break;
+				case'-':
+					aInp[3].value=(1000*aVal1-1000*aVal2)/1000
+					break;
+				case'*':
+					aInp[3].value=(1000*aVal1*1000*aVal2)/1000000
+					break;
+				case'/':
+					aInp[3].value=1000*aVal1/(1000*aVal2)
+					break;
+				case'%':
+					aInp[3].value=aVal1%aVal2
+					break;
+				}
+				
+			}
+			
+		}
+	}
+	</script>
+	
+</head>
+<body>
+	<header>
+		<ul class="block-menu">
+		  <li>
+		    <a href="../index.html" class="three-d">
+		      Home
+		      <span class="three-d-box">
+		        <span class="front">Home</span>
+		        <span class="back">Home</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="../demo.html" class="three-d">
+		     	DEMO
+		      <span class="three-d-box">
+		        <span class="front">DEMO</span>
+		        <span class="back">DEMO</span>
+		      </span>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="../about.html" class="three-d">
+		      ABOUT
+		      <span class="three-d-box">
+		        <span class="front">ABOUT</span>
+		        <span class="back">ABOUT</span>
+		      </span>
+		    </a>
+		  </li>
+		</ul>
+	</header>
+	<section>
+		<a class="back_btn" href="../demo.html">返回</a>
+		<div class="box">
+			<input type="text" name="" id="">
+			<select name="" id="sym">
+				<option value="+">加</option>
+				<option value="-">减</option>
+				<option value="*">乘</option>
+				<option value="/">除</option>
+				<option value="%">模</option>
+			</select>
+			<input type="text" name="" id=""><br><br>
+			<input type="button" value="计算" id="enter"><br><br><br>
+			<input type="text" name="" id="res">
+		</div>
+	</section>
+	<footer>
+		<p>
+			Talk is cheap, show me the code.Blog by Kindbug.
+		</p>	
+	</footer>
+</body>
+</html>
