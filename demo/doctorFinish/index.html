@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>大数医达</title>
+		<meta content="yes" name="apple-mobile-web-app-capable">
+        <meta content="yes" name="apple-touch-fullscreen">
+        <meta content="telephone=no,email=no" name="format-detection">
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="css/swiper.min.css" />
+		<script>
+			! function(a, b) {
+				function c() {
+					var b = f.getBoundingClientRect().width;
+					b / i > 540 && (b = 540 * i);
+					var c = b / 10;
+					f.style.fontSize = c + "px", k.rem = a.rem = c
+				}
+				var d, e = a.document,
+					f = e.documentElement,
+					g = e.querySelector('meta[name="viewport"]'),
+					h = e.querySelector('meta[name="flexible"]'),
+					i = 0,
+					j = 0,
+					k = b.flexible || (b.flexible = {});
+				if(g) {
+					console.warn("将根据已有的meta标签来设置缩放比例");
+					var l = g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+					l && (j = parseFloat(l[1]), i = parseInt(1 / j))
+				} else if(h) {
+					var m = h.getAttribute("content");
+					if(m) {
+						var n = m.match(/initial\-dpr=([\d\.]+)/),
+							o = m.match(/maximum\-dpr=([\d\.]+)/);
+						n && (i = parseFloat(n[1]), j = parseFloat((1 / i).toFixed(2))), o && (i = parseFloat(o[1]), j = parseFloat((1 / i).toFixed(2)))
+					}
+				}
+				if(!i && !j) {
+					var p = a.navigator.userAgent,
+						q = (!!p.match(/android/gi), !!p.match(/iphone/gi)),
+						r = q && !!p.match(/OS 9_3/),
+						s = a.devicePixelRatio;
+					i = q && !r ? s >= 3 && (!i || i >= 3) ? 3 : s >= 2 && (!i || i >= 2) ? 2 : 1 : 1, j = 1 / i
+				}
+				if(f.setAttribute("data-dpr", i), !g)
+					if(g = e.createElement("meta"), g.setAttribute("name", "viewport"), g.setAttribute("content", "initial-scale=" + j + ", maximum-scale=" + j + ", minimum-scale=" + j + ", user-scalable=no"), f.firstElementChild) f.firstElementChild.appendChild(g);
+					else {
+						var t = e.createElement("div");
+						t.appendChild(g), e.write(t.innerHTML)
+					}
+				a.addEventListener("resize", function() {
+					clearTimeout(d), d = setTimeout(c, 300)
+				}, !1), a.addEventListener("pageshow", function(a) {
+					a.persisted && (clearTimeout(d), d = setTimeout(c, 300))
+				}, !1), "complete" === e.readyState ? e.body.style.fontSize = 12 * i + "px" : e.addEventListener("DOMContentLoaded", function() {
+					e.body.style.fontSize = 12 * i + "px"
+				}, !1), c(), k.dpr = a.dpr = i, k.refreshRem = c, k.rem2px = function(a) {
+					var b = parseFloat(a) * this.rem;
+					return "string" == typeof a && a.match(/rem$/) && (b += "px"), b
+				}, k.px2rem = function(a) {
+					var b = parseFloat(a) / this.rem;
+					return "string" == typeof a && a.match(/px$/) && (b += "rem"), b
+				}
+			}(window, window.lib || (window.lib = {}));
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="idxH clearfix">
+				<span class="idxNavBtn"></span>
+				<h2 class="idxTit">大数医生</h2>
+			</header>
+			<div class="banner">
+				<div class="bannerImg">
+					<img src="img/banner.jpg" alt="banner" />
+				</div>
+				<div class="bannerTxt">
+					<p class="txtUp">人工智能一小步,</p>
+					<p class="txtD"><span>医疗健康</span>&nbsp;一大步</p>
+				</div>
+			</div>
+			<div class="section">
+					<div class="part1">
+						<h3 class="secTit">
+							<span class="titRed">01</span>
+							团队领袖--邓侃CTO
+							<p class="titLine"></p>
+						</h3>
+						<div class="secTxt">
+							水电费手打送快递费的思考的房间阿萨德了看法上放空间圣诞快乐附近撒开发商的开发是快乐的房间撒可富	
+						</div>
+						<div class="swiper-container">
+					        <div class="swiper-wrapper">
+					            <div class="swiper-slide">
+					            	<i class="icon"></i>
+					            	<h6>顶尖团队</h6>
+					            	<p>faskdf</p>
+					            	<p>asdfasf</p>
+					            </div>
+					           	<div class="swiper-slide">
+					            	<i class="icon icon2"></i>
+					            	<h6>医学专家</h6>
+					            	<p>faskdf</p>
+					            	<p>asdfasf</p>
+					            </div>
+					            <div class="swiper-slide">
+					            	<i class="icon icon3"></i>
+					            	<h6>顶尖团队</h6>
+					            	<p>faskdf</p>
+					            	<p>asdfasf</p>
+					            </div>
+					            <div class="swiper-slide">
+					            	<i class="icon icon4"></i>
+					            	<h6>国际领先</h6>
+					            	<p>faskdf</p>
+					            	<p>asdfasf</p>
+					            </div>
+					            <div class="swiper-slide">
+					            	<i class="icon icon5"></i>
+					            	<h6>顶尖团队</h6>
+					            	<p>faskdf</p>
+					            	<p>asdfasf</p>
+					            </div>
+					            <div class="swiper-slide">
+					            	<i class="icon"></i>
+					            	<h6>顶尖团队</h6>
+					            	<p>faskdf</p>
+					            	<p>asdfasf</p>
+					            </div>
+					            <div class="swiper-slide">
+					            	<i class="icon"></i>
+					            	<h6>顶尖团队</h6>
+					            	<p>faskdf</p>
+					            	<p>asdfasf</p>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+					<div class="part2">
+						<h3 class="secTit">
+							<span class="titRed">02</span>
+							关于我们
+							<p class="titLine"></p>
+						</h3>
+						<div class="secTxt">
+							水电费手打送快递费的思考的房间阿萨德了看法上放空间圣诞快乐附近撒开发商的开发是快乐的房间撒可富	
+						</div>
+					</div>
+					<div class="part3">
+						<h3 class="secTit">
+							<span class="titRed">03</span>
+							我们的愿景
+							<p class="titLine"></p>
+						</h3>
+						<div class="secTxt">
+							水电费手打送快递费的思考的房间阿萨德了看法上放空间圣诞快乐附近撒开发商的开发是快乐的房间撒可富	
+						</div>
+						<video class="MP4" loop controls preload="auto">
+							<source src="img/hd.mp4"></source>
+						</video>
+						<div class="maskVideo">
+							<p class="maskVideoBg">播放</p>
+						</div>
+					</div>
+					<div class="part4" id="mark">
+						<h3 class="secTit">
+							<span class="titRed">04</span>
+							联系我们
+							<p class="titLine"></p>
+						</h3>
+						<div class="secTxt">
+							水电费手打送快递费的思考的房间阿萨德了看法上放空间圣诞快乐附近撒开发商的开发是快乐的房间撒可富	
+						</div>
+					</div>
+				</div>
+			<div class="mask">
+				<ul>
+					<li class="maskList">
+						<a href="javascript:;">首页</a>
+					</li>
+					<li class="maskList">
+						<a href="introduce.html">介绍</a>
+					</li>
+					<li class="maskList markBtn">
+						<a href="#mark">联系我们</a>
+					</li>
+					<li class="maskList close">
+						<a href="javascript:;">&times;</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="map" id="map"></div>
+		<footer class="footTxt">
+			京ICP备16013105号-1
+		</footer>
+		<script src="js/swiper.min.js"></script>
+		<script>
+		    var swiper = new Swiper('.swiper-container', {
+		        slidesPerView: 3,
+		        paginationClickable: true,
+		        spaceBetween: 0
+		    });
+		</script>
+		<script src="js/zepto.min.js"></script>
+		<script src="js/index.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=M1TLtBBYdlr2bZBr1sGDorgEDssOQtTE"></script>
+		<script>
+	        var map = new BMap.Map("map");    // 创建Map实例
+	        var point = new BMap.Point(116.404, 39.915);
+	        map.centerAndZoom(point,15);  // 初始化地图,设置中心点坐标和地图级别
+	
+	        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+	        map.disableDragging();     //禁止拖拽
+		</script>
+	</body>
+</html>
