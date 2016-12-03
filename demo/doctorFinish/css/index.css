@@ -204,15 +204,16 @@
 }
 .mask .close {
   width: 10%;
-  line-height: 1.06666667rem;
+  line-height: 1.01333333rem;
   position: absolute;
   left: 0.26666667rem;
   top: 0.26666667rem;
   font-size: 0.8rem;
   border: 1px solid #fff;
+  border-radius: 50%;
 }
 #map {
-  width: 10rem;
+  width: 8.66666667rem;
   height: 3.25333333rem;
   margin: 0 auto;
   border: 1px solid #ccc;
@@ -223,7 +224,7 @@
   line-height: 1.81333333rem;
   background: #fafafa;
   text-align: center;
-  font-size: 26px;
+  font-size: 0.34666667rem;
 }
 .bannerImg2 img {
   width: 100%;
@@ -287,9 +288,9 @@
 .introSec .swiper-container .swiper-slide .subtitle {
   margin: 1.38666667rem 0.69333333rem 1rem 1.32rem;
   width: 7.96rem;
-  height: 2.12rem;
-  background: url(../img/subImg.png);
-  background-size: 7.96rem 2.12rem;
+  height: 2.13333333rem;
+  background: url(../img/subImg.png) no-repeat center;
+  background-size: 100%  100%;
 }
 .introSec .swiper-container .swiper-slide .text {
   line-height: 0.64rem;
