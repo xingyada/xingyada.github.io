@@ -1,5 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
+@font-face {
+  font-family: "TexasSlaughter-Regular";
+  src: url("../font/font2/TexasSlaughter-Regular.woff2") format("woff2"),
+       url("../font/font2/TexasSlaughter-Regular.woff") format("woff"),
+       url("../font/font2/TexasSlaughter-Regular.ttf") format("truetype"),
+       url("../font/font2/TexasSlaughter-Regular.eot") format("embedded-opentype"),
+       url("../font/font2/TexasSlaughter-Regular.svg") format("svg");
+}
 body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd,input,textarea{ padding:0; margin:0;}
 img{ vertical-align:top; border:none;}
 a{ text-decoration:none; color:#4d6dad; }
@@ -33,6 +41,7 @@ width: 100%;
  padding-left:40px;
 }
 .block-menu li{
+	
     float: left;
     margin-left: 15px;
 }
@@ -40,10 +49,11 @@ width: 100%;
   color:#fff;
   text-decoration:none;
   text-transform:uppercase;
-  font-size:20px;
+  font-size:25px;
   line-height:20px;
-  font-weight:bold;
-  font-family: Arial, sans-serif;
+  font-weight:200;
+  font-family: "TexasSlaughter-Regular";
+  letter-spacing: 5px;
   display:block;
   padding:15px 10px;
 }
@@ -180,7 +190,9 @@ footer{
 	font-size:20px;
 	line-height:50px;
 	font-weight:bold;
-	font-family: Arial, sans-serif;
+	font-family: "TexasSlaughter-Regular";
+	letter-spacing: 4px;
+	font-weight: 100;
     text-align: center;
     background-color: #253939;
     color: #bbb;

@@ -18,11 +18,12 @@ $(function(){
 	//锚点
 
 	//产品轮播图
-    $('#nav .navList').click(function(){
+    $('#nav .navList').click(function(e){
     	var iNow=$(this).index();
     	$('#nav .navList').removeClass('cur');
     	$('#nav .navList')[iNow].className='navList cur';
     	swiper.slideTo(iNow, 1000, false);
+    	e.preventDefault();
     });
     
    
